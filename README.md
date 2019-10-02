@@ -27,9 +27,19 @@
 | metai1.txt (pakeista pirma raidė)  | fBBdc3Ae4EdAB03dbD9EBe9E6D8cF0E  |
 
 4. Tuščias failas Ir išveskite output'us.
+
 | Inputas  | Output |
 | ------------- | ------------- |
-| tuscias.txt (pakeista pirma raidė) | dFffdcbABcEccF363FAFCEdE7d5Eac1 |
+| tuscias.txt  | EEa4B1DA0e15cD6005b17BabEAc141a  |
+| nulis.txt  | dFffdcbABcEccF363FAFCEdE7d5Eac1  |
 
 #### 2 dalis
+
+Ištirkite Jūsų sukurtos hash funkcijos efektyvumą: tuo tikslu suhash'uokite kiekvieną eilutę iš konstitucija.txt failo.
+
+| Bandymo numeris  | Laikas |
+| ------------- | ------------- |
+| 1  | 0.435263 s |
+| 2  | 0.434813 s |
+| 3  | 0.435448 s |
 
