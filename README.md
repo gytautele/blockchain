@@ -55,3 +55,4 @@ Ištirkite Jūsų sukurtos hash funkcijos efektyvumą: tuo tikslu suhash'uokite 
 | 3  | 0.620487 s |
 
 #### 3/4 dalys
+https://github.com/dqmis/hashrank
