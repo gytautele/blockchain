@@ -1,7 +1,18 @@
 ## v0.1
 
 ### Hash'avimo funkcijos idėja
-
+* Į hash'avimo funkciją atsisiųsta visų input suma (paversta naudojantis ASCII sistema).
+* Naudojamas std::mt19937 generatorius.
+* Generatoriui paduodamas fiksuotas skaičius - visų input suma - dėl to, kad nebūtų generuojamos random reikšmės.
+* Parenkama generuoti galimos ribos:
+  * skaičius (48, 57)
+  * raidė (97, 102);
+  * didžioji raidė (65, 70);
+* Taip pat sugeneruojama 0, 1, 2:
+  * 2 - sugeneruojamas skaičius
+  * 3 - raidė
+  * 4 - didžioji raidė
+  
 ### Eksperimentinio tyrimo-analizės atlikimas
 #### 1 dalis
 
@@ -39,7 +50,8 @@ Ištirkite Jūsų sukurtos hash funkcijos efektyvumą: tuo tikslu suhash'uokite 
 
 | Bandymo numeris  | Laikas |
 | ------------- | ------------- |
-| 1  | 0.435263 s |
-| 2  | 0.434813 s |
-| 3  | 0.435448 s |
+| 1  | 0.635977 s |
+| 2  | 0.61038 s  |
+| 3  | 0.620487 s |
 
+#### 3/4 dalys
