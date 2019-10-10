@@ -98,3 +98,8 @@ int main() {
 }
 ```
 
+#### 4 dalis (Procentinis sutapimas)
+
+Minimalus procentinis panašumas yra 50.3906%
+Maksimalus procentinis panašumas yra 77.3438%
+Vidutiniškas procentinis panašumas yra 64.2382%
