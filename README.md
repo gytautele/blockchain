@@ -54,7 +54,7 @@ Ištirkite Jūsų sukurtos hash funkcijos efektyvumą: tuo tikslu suhash'uokite 
 | 2  | 0.61038 s  |
 | 3  | 0.620487 s |
 
-#### 3/4 dalys
+#### 3 dalis
 https://github.com/dqmis/hashrank
 
 **Legend**  
@@ -69,7 +69,32 @@ https://github.com/dqmis/hashrank
 | Github nick | Link to the repo            | Course/group | Reference test | A      | B         | C      | D    | E          | F      | G  |
 |-------------|-----------------------------|--------------|----------------|--------|-----------|--------|------|------------|--------|----|
 | dqmis       | dqmis/vuhash                | 2/1          | 5.7301         | 0.0052 | 1417.6514 | 0.1108 | 9917 | 1497.0956s | 0.0056 | 0  |
-| gytautele   | gytautele/blockchain        | 2/2          | 5.7201         | 0.0047 | 1043.5663 | 0.0136 | 0    | 1060.4037  | 0.0141 | 49 |
+| gytautele   | gytautele/blockchain        | 2/2          | 5.7201         | 0.0047 | 1043.5663 | 0.0136 | 0    | 1060.4037  | 0.0141 | 0 |
 | emilisb     | emilisb/Hash                | 2/2          | 5.3863         | 0.0035 | 804.7102  | 0.0108 | 0    | 820.5668   | 0.0108 | 0  |
 | gitguuddd   | gitguuddd/Hash_generatorius | 2/2          | 7.119          | 0.0285 | 6833.3648 | 0.0308 | 2    | 6840.2643  | 0.005  | 0  |
+
+#### 4 dalis (Word Coallision)
+
+Sukurtas simple testukas patikrinti koalizijų skaičių, kurių praeitoje versijoje buvo 49.
+
+Test'o esmė: į map konteinerį insertina tik tada, jeigu hash'as nesutampa su prieš tai buvusiais.
+PVZ.: jeigu iš viso hash yra 500, o testas atspausdina skaičių 499, vadinasi vienas hash sutapo ir word coallision yra lygus 1.
+
+```
+#include <fstream>
+#include <iostream>
+#include <map>
+int main() {
+    std::map<std::string, unsigned int> hasher;
+    std::ifstream fd("hash.txt");
+    std::string z;
+
+    for (int i = 0; i < 100000; i++) {
+        fd >> z;
+        hasher.insert(std::pair<std::string, unsigned int>(z, 1));
+    }
+    std::cout << hasher.size();
+    return 0;
+}
+```
 
