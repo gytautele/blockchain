@@ -28,16 +28,16 @@ void read (vector<int> &newly, string input)
 	unsigned long long sum=0; //temp suma
 	cout << "Please write your input, when You want to stop, press ENTER:" << endl;
 	cin.ignore();
+	int x=0;
 	getline(cin, input);
 
 		for (int i = 0; i < input.size(); i++){
 			sum+=int(input[i]);
+			x=input.length()*input.length()*input.length();
 
 		}
-		sum+=input.length()*input.length();
-		sum*=541354;
+		sum+=x*541354;
 		newly.push_back(sum);
-		std::reverse(newly.begin(), newly.end());
 
 }
 //-------------------------------
@@ -47,6 +47,7 @@ void read1(vector<int> &newly, string input)
 	std::ifstream in("test/konstitucija.txt");
 	int temp; //temporary
 	unsigned long long sum=0; //temp suma
+	unsigned long long x=0;
 
 	if (!in) {
     cout << "Unable to open text file";
@@ -59,17 +60,14 @@ void read1(vector<int> &newly, string input)
 		for (int i = 0; i < input.size(); i++){
 			sum+=int(input[i]);
 		}
-		sum+=input.length()*input.length();
+		x=input.length()*input.length()*input.length();
+		sum*=x;
 		sum*=541354;
+		sum+=x;
 		newly.push_back(sum);
-		std::reverse(newly.begin(), newly.end());
 	}
-	in.close();
 
-	 for (int i=0; i<31; i++)
-    {
-    	cout << hasher[i];
-    }
+	in.close();
 
 }
 //-------------------------------
@@ -94,9 +92,10 @@ void read2(vector<int> &newly, string input, std::vector<std::string>& inputs)
 			sum+=int(input[i]);
 			sum+=input.length()*input.length();
 			sum*=541354;
-			inputs.push_back(input);
 			newly.push_back(sum);
+
 		}
+		inputs.push_back(input);
 		
     }
     in.close();
@@ -173,6 +172,7 @@ void hash_fun2(vector<int> &newly, std::vector<std::string>& hasherr, std::vecto
         }
     h = rand;
     hasherr.push_back(h);
+    newly.clear();
     }
 }
 //------------------------------------
@@ -236,12 +236,9 @@ int main(int argc, char const *argv[])
 		} 
 		if (b==0)
 		{
-			cout << "aa"<< endl;
 			start = std::chrono::high_resolution_clock::now();
 			read2(newly, input, inputs);
-			cout << "bb"<< endl;
 			hash_fun2(newly, hasherr, inputs);
-			cout << "cc"<< endl;
 			ending = std::chrono::high_resolution_clock::now();
   			std::chrono::duration<float> laikas = ending - start;
     		std::cout << "Hash'inti konstitucija.txt truko: " << laikas.count() << std::endl;
